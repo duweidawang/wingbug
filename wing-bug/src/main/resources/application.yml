@@ -1,0 +1,96 @@
+
+spring:
+  datasource:
+    username: wing_bug
+    password: SsCXxT66axjDpykA
+    url: jdbc:mysql://211.101.233.3:3306/wing_bug?useUnicode=true&characterEncoding=utf-8
+#    username: root
+#    password: 123456
+#    url: jdbc:mysql://localhost:3306/wing_bug?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+
+#    username: root
+#    password: 123
+#    url: jdbc:mysql://47.109.86.195:3306/wing_bug?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+
+
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 20
+
+
+
+
+  redis:
+    host: 211.101.233.3
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 0
+        min-idle: 100
+    password: wingredis
+  mail:
+
+    host: smtp.qq.com
+
+    protocol: smtps
+
+    default-encoding: utf-8
+
+    username: 1762353200@qq.com
+
+    password: fsratgyzwyiscdgg
+
+    port: 465
+
+    properties:
+      mail:
+        stmp:
+          ssl:
+            enable: true
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 2000MB
+  jackson:
+    deserialization:
+      ACCEPT_SINGLE_VALUE_AS_ARRAY: true
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: flag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+logging:
+  level:
+    com.example.dwbug: error
+qqEmail:
+  from: 1762353200@qq.com
+
+163Email:
+  from: 18048479781@163.com
+  password: AUXFEIHYHKODLTJC
+server:
+  port: 9000
+
+
+upload:
+  url: /www/wwwroot/loophole/wing-bug/
+
+
+address:
+  url: /www/wwwroot/loophole/wing-bug/userlog/
+#  url: /www/wwwroot/loophole/wing-bug/userlog/
+
+
+
+

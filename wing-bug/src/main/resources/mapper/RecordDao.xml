@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dwbug.dao.RecordDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+
+
+    <insert id="insert">
+        insert into bug_record set user_id=#{userId},record_rank=#{rank},create_time=#{createTime}
+    </insert>
+</mapper>

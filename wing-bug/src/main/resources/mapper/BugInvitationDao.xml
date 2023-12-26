@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dwbug.dao.BugInvitationDao">
+
+    <resultMap id="BaseResultMap" type="com.example.dwbug.entity.BugInvitationEntity">
+            <id property="invitationId" column="invitation_id" jdbcType="BIGINT"/>
+            <result property="invitation" column="invitation" jdbcType="VARCHAR"/>
+            <result property="invitationState" column="invitation_state" jdbcType="BIGINT"/>
+            <result property="notes" column="notes" jdbcType="VARCHAR"/>
+            <result property="expireTime" column="expire_time" jdbcType="TIMESTAMP"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        invitation_id,invitation,invitation_state,
+        notes,expire_time,create_time
+    </sql>
+    <select id="searchTime" resultType="java.time.LocalDateTime">
+        select expire_time from bug_invitation where invitation_id = #{id}
+    </select>
+    <select id="selectInvitation" resultType="com.example.dwbug.entity.BugInvitationEntity">
+        SELECT * FROM bug_invitation LIMIT #{num}
+    </select>
+
+
+</mapper>

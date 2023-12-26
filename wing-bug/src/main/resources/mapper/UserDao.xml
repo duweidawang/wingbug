@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dwbug.dao.UserDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.example.dwbug.entity.UserEntity" id="userMap">
+        <result property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="avator" column="avator"/>
+        <result property="userRank" column="rank"/>
+        <result property="bugNum" column="bug_num"/>
+        <result property="approved" column="approved"/>
+        <result property="createdBy" column="created_by"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+    <select id="queryMenuList" resultType="java.lang.String">
+        select menu_key from bug_menu where id=#{menuId}
+    </select>
+    <select id="queryRole" resultType="java.lang.Integer">
+        select role from bug_user where id=#{userId}
+
+    </select>
+    <select id="queryMenuId" resultType="java.lang.Long">
+        select menu_id from bug_usermenu_relation where role_id=#{roleId}
+    </select>
+    <select id="searchByNum" resultType="com.example.dwbug.entity.UserEntity">
+        SELECT * FROM bug_user LIMIT #{num}
+    </select>
+
+
+</mapper>
